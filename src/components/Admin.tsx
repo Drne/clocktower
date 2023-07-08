@@ -15,7 +15,7 @@ export const Admin = ({targetTime, startTime, updateTime}: {targetTime: Date, st
     return (
         <>
             <Countdown timeToTarget={targetTime} startTime={startTime}/>
-            <div>
+            <div style={{zIndex: 1000}}>
                 <TextField label={"Add Minutes"} value={minutes} onChange={(e) => handleNumberTextFieldChange(e, setMinutes)} />
                 <TextField label={"Add Seconds"} value={seconds} onChange={(e) => handleNumberTextFieldChange(e, setSeconds)} />
 
