@@ -15,7 +15,7 @@ export const Countdown = ({timeToTarget, startTime}: {timeToTarget: Date, startT
     }, [startTime, timeToTarget])
 
     return (
-        <div style={{position: 'relative', height: '80vh', width: '80vh', margin: 'auto', padding: '20px', backgroundColor: "#2a2f31"}}>
+        <div style={{position: 'relative', maxHeight: '80vh', maxWidth: '80vh', margin: 'auto', padding: '20px'}}>
             <CircularProgressbarWithChildren value={percentage} styles={
                 buildStyles({
                         pathColor: percentage > 99 ? 'red' : 'rgb(136, 8, 8)',
@@ -24,7 +24,7 @@ export const Countdown = ({timeToTarget, startTime}: {timeToTarget: Date, startT
                 }>
                 <img src={clock} alt="clock-face" style={{position: 'absolute', maxWidth: '100%', maxHeight: '100%'}} />
                 <FlipClockCountdown to={timeToTarget} renderMap={[false, false, true, true]} onTick={callback}>
-                    <img src={demonHead} alt="demon-head" style={{ transition: '1s ease'}}/>
+                    <img src={demonHead} alt="demon-head" style={{ maxHeight: '60%'}}/>
                 </FlipClockCountdown>
             </CircularProgressbarWithChildren>
         </div>
