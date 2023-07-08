@@ -6,7 +6,7 @@ export const Share = ({targetTime, startTime}: {targetTime: Date, startTime: Dat
     return (
         <>
             <Countdown timeToTarget={targetTime} startTime={startTime}/>
-            <img src={qrCode} alt={qrCode} style={{position: "absolute", width: '20%', height: '20%', top: '5%', right: '5%'}}/>
+            <img src={qrCode} alt={qrCode} style={{position: "absolute", height: '20%', top: '5%', right: '5%'}}/>
         </>
     )
 }
