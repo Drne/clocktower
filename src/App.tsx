@@ -26,9 +26,6 @@ function App() {
 
   return (
     <div className="App">
-        <div>
-            Tada!
-        </div>
         <HashRouter>
             <Routes>
                 <Route path="/" element={<Countdown timeToTarget={targetTime} startTime={startTimeDate}/>} />
