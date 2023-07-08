@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-        <BrowserRouter>
+        <BrowserRouter basename="/clocktower">
             <Routes>
                 <Route path="/" element={<Countdown timeToTarget={targetTime} startTime={startTimeDate}/>} />
                 <Route path="/admin" element={<Admin targetTime={targetTime} updateTime={updateTime} startTime={startTimeDate} />} />
