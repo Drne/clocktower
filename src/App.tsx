@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import './App.css';
 import { useCurrentTime } from "./hooks/useCurrentTime";
 import '@leenguyen/react-flip-clock-countdown/dist/index.css';
-import {HashRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Countdown} from "./components/Countdown";
 import {Admin} from "./components/Admin";
 
@@ -29,12 +29,12 @@ function App() {
         <div>
             Tada!
         </div>
-        <HashRouter>
+        <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Countdown timeToTarget={targetTime} startTime={startTimeDate}/>} />
                 <Route path="/admin" element={<Admin targetTime={targetTime} updateTime={updateTime} startTime={startTimeDate} />} />
             </Routes>
-        </HashRouter>
+        </BrowserRouter>
     </div>
   );
 }
