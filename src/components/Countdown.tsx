@@ -15,7 +15,7 @@ export const Countdown = ({timeToTarget, startTime}: {timeToTarget: Date, startT
     }, [startTime, timeToTarget])
 
     return (
-        <div style={{position: 'relative', height: '80vh', width: '80vh', margin: 'auto', padding: '20px'}}>
+        <div style={{position: 'relative', height: '80vh', width: '80vh', margin: 'auto', padding: '20px', backgroundColor: "#131516"}}>
             <CircularProgressbarWithChildren value={percentage} styles={
                 buildStyles({
                         pathColor: percentage > 99 ? 'red' : 'rgb(136, 8, 8)',
