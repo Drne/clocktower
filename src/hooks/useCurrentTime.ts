@@ -17,7 +17,7 @@ export const useCurrentTime = () => {
                 setCurrentStartTime(currentTime)
             })
 
-            setSocket(sock)
+            return sock
         })
 
     }, [])
