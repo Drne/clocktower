@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useMemo} from 'react';
 import './App.css';
+import { useCurrentTime } from "./hooks/useCurrentTime";
+import '@leenguyen/react-flip-clock-countdown/dist/index.css';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Countdown} from "./components/Countdown";
+import {Admin} from "./components/Admin";
 
 function App() {
+  const { currentTime, updateTime, startTime} = useCurrentTime()
+
+  const [targetTime, startTimeDate] = useMemo(() => {
+      const date = new Date()
+      const startDate = new Date()
+
+      if (currentTime) {
+          date.setTime(currentTime)
+      }
+
+      if (startTime) {
+          startDate.setTime(startTime)
+      }
+
+      return [date, startDate]
+  }, [currentTime, startTime])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Countdown timeToTarget={targetTime} startTime={startTimeDate}/>} />
+                <Route path="/admin" element={<Admin targetTime={targetTime} updateTime={updateTime} startTime={startTimeDate} />} />
+            </Routes>
+        </BrowserRouter>
     </div>
   );
 }
