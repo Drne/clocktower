@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/clocktower/static/css/main.df06d25c.css",
+    "main.js": "/clocktower/static/js/main.2afdff34.js",
+    "static/media/clock.png": "/clocktower/static/media/clock.9fcec37c46c4172aa99c.png",
+    "static/media/demon-head.png": "/clocktower/static/media/demon-head.83dad712ea1ee71171e4.png",
+    "index.html": "/clocktower/index.html",
+    "main.df06d25c.css.map": "/clocktower/static/css/main.df06d25c.css.map",
+    "main.2afdff34.js.map": "/clocktower/static/js/main.2afdff34.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.df06d25c.css",
+    "static/js/main.2afdff34.js"
+  ]
+}
