@@ -5,6 +5,7 @@ import '@leenguyen/react-flip-clock-countdown/dist/index.css';
 import {HashRouter, Route, Routes} from "react-router-dom";
 import {Countdown} from "./components/Countdown";
 import {Admin} from "./components/Admin";
+import {Share} from "./components/Share";
 
 function App() {
   const { currentTime, updateTime, startTime} = useCurrentTime()
@@ -29,6 +30,7 @@ function App() {
         <HashRouter>
             <Routes>
                 <Route path="/" element={<Countdown timeToTarget={targetTime} startTime={startTimeDate}/>} />
+                <Route path="/share" element={<Share targetTime={targetTime} startTime={startTimeDate} />} />
                 <Route path="/admin" element={<Admin targetTime={targetTime} updateTime={updateTime} startTime={startTimeDate} />} />
             </Routes>
         </HashRouter>
