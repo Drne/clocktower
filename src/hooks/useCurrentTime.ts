@@ -12,9 +12,9 @@ export const useCurrentTime = () => {
         setSocket(() => {
             const sock = io(wsUrl)
 
-            sock.on("currentTargetTime", ({targetTime, currentTime}: {targetTime: number, currentTime: number}) => {
+            sock.on("currentTargetTime", ({targetTime, startTime}: {targetTime: number, startTime: number}) => {
                 setCurrentTime(targetTime)
-                setCurrentStartTime(currentTime)
+                setCurrentStartTime(startTime)
             })
 
             return sock
