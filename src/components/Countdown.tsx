@@ -12,6 +12,7 @@ import useSound from "use-sound";
 
 export const Countdown = ({timeToTarget, startTime}: {timeToTarget: Date, startTime: Date}) => {
     const [percentage, setPercentage] = useState(100);
+    const [startedCountdown, setStartedCountdown] = useState(false);
 
     const [playBell] = useSound(bellTower)
     const [playClock] = useSound(clockTicking)
@@ -19,8 +20,11 @@ export const Countdown = ({timeToTarget, startTime}: {timeToTarget: Date, startT
     const callback = useCallback(({ completed }: {completed: boolean}) => {
         if (completed) {
             setPercentage(100);
-            playBell()
+            if (startedCountdown) {
+                playBell()
+            }
         } else {
+            setStartedCountdown(true)
             const percentage = (Date.now() - startTime.getTime()) / (timeToTarget.getTime() - startTime.getTime())
             setPercentage(percentage * 100)
 
@@ -29,7 +33,7 @@ export const Countdown = ({timeToTarget, startTime}: {timeToTarget: Date, startT
                 playClock()
             }
         }
-    }, [playBell, playClock, startTime, timeToTarget])
+    }, [playBell, playClock, startTime, startedCountdown, timeToTarget])
 
     return (
         <div style={{position: 'relative', maxHeight: '80vh', maxWidth: '80vh', margin: 'auto', padding: '20px'}}>
