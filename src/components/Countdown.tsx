@@ -7,7 +7,7 @@ import clock from '../files/clock.png';
 import demonHead from '../files/demon-head.png';
 import minutes from '../files/minutes.png';
 import bellTower from '../files/bell-tower.mp3';
-import clockTicking from '../files/clock-ticking.mp3'
+import clockTicking from '../files/clock-ticking.mp3';
 import useSound from "use-sound";
 
 export const Countdown = ({timeToTarget, startTime}: {timeToTarget: Date, startTime: Date}) => {
@@ -28,8 +28,8 @@ export const Countdown = ({timeToTarget, startTime}: {timeToTarget: Date, startT
             const percentage = (Date.now() - startTime.getTime()) / (timeToTarget.getTime() - startTime.getTime())
             setPercentage(percentage * 100)
 
-            const secondsLeft = timeToTarget.getSeconds() - new Date().getSeconds()
-            if (secondsLeft === 30) {
+            const secondsLeft = (Date.now() - timeToTarget.getTime()) * -1 / 1000
+            if (secondsLeft <= 31 && secondsLeft >= 30) {
                 playClock()
             }
         }
